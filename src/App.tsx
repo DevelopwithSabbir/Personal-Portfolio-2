@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Code2, Server, Database, Globe, ExternalLink, Send, Sparkles, Award, Users } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 import { supabase, supabaseEnabled } from './lib/supabase';
-
+import { ShoppingCart, BrainCircuit, Layers, Wrench } from 'lucide-react';
 function App() {
   const [formData, setFormData] = useState({
     name: '',
@@ -130,57 +130,111 @@ function App() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
+
+
+      
+
+
+{/* Services Section */}
+<section id="services" className="py-24 bg-gradient-to-b from-white to-gray-100">
+  <div className="container mx-auto px-6 text-center">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <h2 className="text-5xl font-bold text-gray-800 mb-12">🚀 My Services</h2>
+      <p className="text-lg text-gray-600 mb-16 max-w-3xl mx-auto">
+        Transform your business with high-quality, AI-driven web solutions that are 
+        optimized for speed, scalability, and user experience.
+      </p>
+      <div className="grid md:grid-cols-3 gap-8">
+        {[
+          { icon: Code2, title: 'Landing Pages', desc: 'Fast, modern, and responsive pages', price: '$50 - $100' },
+          { icon: Server, title: 'Business Websites', desc: 'Professional sites tailored for brands', price: '$100 - $300' },
+          { icon: ShoppingCart, title: 'E-commerce Stores', desc: 'Full-fledged online stores with payment integration', price: '$200+' },
+          { icon: BrainCircuit, title: 'AI Features', desc: 'Smart automation & AI-powered web apps', price: '$150+' },
+          { icon: Layers, title: 'Full-Stack Development', desc: 'Complete web solutions from idea to deployment', price: 'Custom Pricing' },
+          { icon: Wrench, title: 'Website Optimization', desc: 'Speed, SEO & performance enhancements', price: 'Custom Pricing' }
+        ].map((service, index) => (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            key={index}
+            whileHover={{ scale: 1.05 }}
+            className="p-8 bg-white/80 backdrop-blur-lg rounded-xl text-center shadow-md hover:shadow-xl transition-all border border-gray-200"
           >
-            <h2 className="text-4xl font-bold text-center mb-16">About Me</h2>
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  I'm a passionate Full Stack Web Developer with a deep love for creating seamless, 
-                  user-centric applications. With expertise in both frontend and backend technologies, 
-                  I bridge the gap between design and functionality to deliver exceptional web experiences.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  {['HTML5', 'CSS3', 'JavaScript', 'React', 'Node.js', 'MongoDB'].map((skill) => (
-                    <motion.span
-                      key={skill}
-                      whileHover={{ scale: 1.1 }}
-                      className="px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full text-gray-700 border border-blue-100"
-                    >
-                      {skill}
-                    </motion.span>
-                  ))}
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-6">
-                {[
-                  { icon: Code2, title: 'Frontend', desc: 'Creating beautiful, responsive interfaces' },
-                  { icon: Server, title: 'Backend', desc: 'Building robust server solutions' },
-                  { icon: Database, title: 'Database', desc: 'Managing data efficiently' },
-                  { icon: Globe, title: 'Web Apps', desc: 'Full-stack applications' }
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.05 }}
-                    className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg text-center shadow-sm hover:shadow-md transition-all"
-                  >
-                    <item.icon className="w-12 h-12 mx-auto mb-4 text-blue-600" />
-                    <h3 className="font-semibold mb-2">{item.title}</h3>
-                    <p className="text-gray-600">{item.desc}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+            <service.icon className="w-14 h-14 mx-auto mb-6 text-blue-600" />
+            <h3 className="text-2xl font-semibold text-gray-800 mb-2">{service.title}</h3>
+            <p className="text-gray-600 mb-4">{service.desc}</p>
+            <span className="text-lg font-bold text-blue-600 bg-blue-100 px-4 py-2 rounded-full">{service.price}</span>
           </motion.div>
+        ))}
+      </div>
+    </motion.div>
+  </div>
+</section>
+      
+
+{/* About Section */}
+<section id="about" className="py-20 bg-gradient-to-b from-white to-gray-100">
+  <div className="container mx-auto px-6">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <h2 className="text-5xl font-bold text-center mb-12 text-gray-800">
+        🚀 About Me
+      </h2>
+      <div className="grid md:grid-cols-2 gap-12 items-center">
+        {/* Left Content */}
+        <div className="space-y-6 p-6 bg-white/80 backdrop-blur-md rounded-xl shadow-lg">
+          <p className="text-lg text-gray-700 leading-relaxed">
+            I help businesses and individuals leverage AI-driven web solutions to 
+            establish a powerful digital presence. With deep expertise in both frontend & backend development,  
+            I create high-performance, scalable applications tailored for modern businesses.
+          </p>
+          <p className="text-lg text-gray-700 leading-relaxed">
+            My work focuses on integrating cutting-edge AI, automation, and seamless user experiences  
+            to give your brand a competitive advantage in the digital world.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            {['AI Development', 'Full-Stack Web Dev', 'JavaScript', 'React', 'Node.js', 'MongoDB', 'TailwindCSS'].map((skill) => (
+              <motion.span
+                key={skill}
+                whileHover={{ scale: 1.1 }}
+                className="px-5 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full text-white font-semibold shadow-md transition-all"
+              >
+                {skill}
+              </motion.span>
+            ))}
+          </div>
         </div>
-      </section>
+
+        {/* Right Cards */}
+        <div className="grid grid-cols-2 gap-6">
+          {[
+            { icon: Code2, title: 'AI-Powered Web Apps', desc: 'Smart, automated & efficient' },
+            { icon: Server, title: 'Scalable Backend', desc: 'Robust, secure & high-performance' },
+            { icon: Database, title: 'Data Management', desc: 'Optimized for speed & efficiency' },
+            { icon: Globe, title: 'Full-Stack Development', desc: 'From concept to deployment' }
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              className="p-6 bg-white/80 backdrop-blur-lg rounded-xl text-center shadow-md hover:shadow-xl transition-all border border-gray-200"
+            >
+              <item.icon className="w-14 h-14 mx-auto mb-4 text-blue-600" />
+              <h3 className="font-semibold text-xl mb-2 text-gray-800">{item.title}</h3>
+              <p className="text-gray-600">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  </div>
+</section>
 
       {/* Portfolio Section */}
       <section id="portfolio" className="py-20 bg-gray-50">
